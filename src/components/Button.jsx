@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/components/Button.scss';
+import '../sass/components/Button.scss';
 
 const Button = ({ children, isGoogleSingIn, ...otherProps }) => (
   <button

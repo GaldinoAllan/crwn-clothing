@@ -5,7 +5,7 @@ import Button from './Button';
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 
-import '../styles/components/SignUp.scss';
+import '../sass/components/SignUp.scss';
 
 class SignUp extends React.Component {
   constructor() {

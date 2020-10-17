@@ -3,7 +3,7 @@ import React from 'react';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 
-import '../styles/pages/SignInSignUp.scss';
+import '../sass/pages/SignInSignUp.scss';
 
 const SignInSignUp = () => (
   <div className="sign-in-and-sign-up">
