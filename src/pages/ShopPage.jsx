@@ -1,8 +1,10 @@
 import React from 'react';
 
-import CollectionPreview from '../../components/CollectionPreview';
+import CollectionPreview from '../components/CollectionPreview';
 
-import SHOP_DATA from '../../data/shop.data'
+import SHOP_DATA from '../data/shop.data'
+
+import '../styles/pages/ShopPage.scss';
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { collections } = this.state
+    const { collections } = this.state;
     return (
       <div className="shop-page">
         {
