@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import Homepage from './pages/Homepage';
-import ShopPage from './pages/ShopPage';
+import Shop from './pages/Shop';
 import SignInSignUp from './pages/SignInSignUp';
 import Checkout from './pages/Checkout';
 
@@ -49,7 +49,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path='/' exact component={Homepage} />
-          <Route path='/shop' component={ShopPage} />
+          <Route path='/shop' component={Shop} />
           <Route exact path='/checkout' component={Checkout} />
           <Route
             exact
