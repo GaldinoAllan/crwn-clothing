@@ -2,12 +2,12 @@ import React from 'react';
 
 import Directory from '../components/Directory';
 
-import '../sass/pages/Homepage.scss';
+import { HomepageContainer } from '../styles/pages/Homepage';
 
 const Homepage = () => (
-  <div className="homepage">
+  <HomepageContainer >
     <Directory />
-  </div>
+  </HomepageContainer >
 );
 
 export default Homepage;
