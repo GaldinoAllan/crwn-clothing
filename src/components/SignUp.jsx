@@ -5,7 +5,7 @@ import Button from './Button';
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 
-import '../sass/components/SignUp.scss';
+import { SignUpContainer } from '../styles/components/SignUp';
 
 class SignUp extends React.Component {
   constructor() {
@@ -55,7 +55,7 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     return (
-      <div className="sign-up">
+      <SignUpContainer>
         <h2 className="title">
           I do not have an account yet
         </h2>
@@ -98,7 +98,7 @@ class SignUp extends React.Component {
             Sign Up
           </Button>
         </form>
-      </div >
+      </SignUpContainer>
     )
   }
 }

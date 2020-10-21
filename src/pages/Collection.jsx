@@ -9,7 +9,7 @@ import {
   CollectionContainer,
   Title,
   Items
-} from '../styles/pages/Collection.scss';
+} from '../styles/pages/Collection';
 
 const Collection = ({ collection }) => {
   const { title, items } = collection;
