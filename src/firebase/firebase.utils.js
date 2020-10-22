@@ -2,25 +2,29 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const REACT_APP_API_KEY = "AIzaSyBEiH36LDfBrI-FgQ9EF7eNYHoUYgjYHyU";
-const REACT_APP_AUTH_DOMAIN = "crwn-clothing-data-base.firebaseapp.com";
-const REACT_APP_DATABASE_URL = "https://crwn-clothing-data-base.firebaseio.com";
-const REACT_APP_PROJECT_ID = "crwn-clothing-data-base";
-const REACT_APP_STORAGE_BUCKET = "crwn-clothing-data-base.appspot.com";
-const REACT_APP_MESSAGING_SENDER_ID = "979213854379";
-const REACT_APP_APP_ID = "1:979213854379:web:e838886b7a7137430d79ee";
-const REACT_APP_MEASUREMENT_ID = "G-EDTZHNGJH5";
+// const config = {
+//   apiKey: "AIzaSyBEiH36LDfBrI-FgQ9EF7eNYHoUYgjYHyU",
+//   authDomain: "crwn-clothing-data-base.firebaseapp.com",
+//   databaseURL: "https://crwn-clothing-data-base.firebaseio.com",
+//   projectId: "crwn-clothing-data-base",
+//   storageBucket: "crwn-clothing-data-base.appspot.com",
+//   messagingSenderId: "979213854379",
+//   appId: "1:979213854379:web:e838886b7a7137430d79ee",
+//   measurementId: "G-EDTZHNGJH5"
+// };
 
 const config = {
-  apiKey: REACT_APP_API_KEY,
-  authDomain: REACT_APP_AUTH_DOMAIN,
-  databaseURL: REACT_APP_DATABASE_URL,
-  projectId: REACT_APP_PROJECT_ID,
-  storageBucket: REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
-  appId: REACT_APP_APP_ID,
-  measurementId: REACT_APP_MEASUREMENT_ID
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
+
+firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -48,7 +52,32 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 }
 
-firebase.initializeApp(config);
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+  objectsToAdd.forEach(object => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, object);
+  });
+
+  return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map(doc => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
+  console.log(transformedCollection);
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
