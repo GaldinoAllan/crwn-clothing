@@ -26,11 +26,18 @@ class Shop extends React.Component {
 
     const collectionRef = firestore.collection('collections');
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+    collectionRef.get().then(snapshot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollection(collectionsMap);
       this.setState({ loading: false });
     });
+
+    // "onSnapshop()" substitutes the ".get().then()" to have the firestore live updates
+    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+    //   updateCollection(collectionsMap);
+    //   this.setState({ loading: false });
+    // });
   };
 
   render() {
