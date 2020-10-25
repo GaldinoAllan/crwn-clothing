@@ -31,11 +31,5 @@ export const fetchCollectionsStartAsync = () => {
         dispatch(fetchCollectionsSuccess(collectionsMap));
       })
       .catch(error => dispatch(fetchCollectionsFailure(error.message)));
-
-    // "onSnapshop()" substitutes the ".get().then()" to have the firestore live updates
-    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    //   dispatch(fetchCollectionsSuccess(collectionsMap));
-    // }).catch(error => dispatch(fetchCollectionsFailure(error.message)));;
   };
 };
