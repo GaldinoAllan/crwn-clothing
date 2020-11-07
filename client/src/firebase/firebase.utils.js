@@ -10,7 +10,7 @@ const config = {
   storageBucket: "crwn-clothing-data-base.appspot.com",
   messagingSenderId: "979213854379",
   appId: "1:979213854379:web:e838886b7a7137430d79ee",
-  measurementId: "G-EDTZHNGJH5"
+  measurementId: "G-EDTZHNGJH5",
 };
 
 // const config = {
