@@ -10,19 +10,8 @@ const config = {
   storageBucket: "crwn-clothing-data-base.appspot.com",
   messagingSenderId: "979213854379",
   appId: "1:979213854379:web:e838886b7a7137430d79ee",
-  measurementId: "G-EDTZHNGJH5",
+  measurementId: "G-EDTZHNGJH5"
 };
-
-// const config = {
-//   apiKey: process.env.REACT_APP_API_KEY,
-//   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-//   databaseURL: process.env.REACT_APP_DATABASE_URL,
-//   projectId: process.env.REACT_APP_PROJECT_ID,
-//   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-//   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-//   appId: process.env.REACT_APP_APP_ID,
-//   measurementId: process.env.REACT_APP_MEASUREMENT_ID
-// };
 
 firebase.initializeApp(config);
 
