@@ -13,7 +13,7 @@ import Header from './components/Header';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
-import './App.css';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = ({ checkUserSession, currentUser }) => {
 
@@ -23,6 +23,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route path='/' exact component={Homepage} />
